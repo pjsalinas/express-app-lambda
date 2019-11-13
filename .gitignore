@@ -1,0 +1,6 @@
+# files
+.env
+../env/spotify/dev.json
+
+# folders
+node_modules/

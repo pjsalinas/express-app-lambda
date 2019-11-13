@@ -1,0 +1,22 @@
+{
+  "name": "express-app-lambda-spotify-la_bellonera",
+  "version": "1.0.0",
+  "description": "An application to deal with the spotify api, and the requirements of a group of WhatsApp users.",
+  "main": "app.js",
+  "dependencies": {
+    "aws-serverless-express": "^3.3.6",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "spotify-web-api-node": "^4.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "scripts": {
+    "serverless": "claudia generate-serverless-express-proxy --express-module app --proxy-module-name spotify",
+    "deploy": "AWS_PROFILE=claudia claudia create --region us-east-1 --version development --handler spotify.handler --deploy-proxy-api --set-env-from-json ../env/spotify/dev.json",
+    "update": "AWS_PROFILE=claudia claudia update --set-env-from-json ../env/spotify/dev.json"
+  },
+  "author": "",
+  "license": "ISC"
+}
